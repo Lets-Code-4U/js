@@ -166,3 +166,39 @@ codingLang.forEach((item) => {
 
 // all objects are treated as specific element
 // we can access the keys and values of the object
+// forEach loop does not return any to the user
+
+/* =================================================================================== */
+
+/* FILTER METHOD , MAP METHOD  AND REDUCE METHOD*/
+
+// this method returns the function to user
+
+// filter method is to filter items of array based on the condition returned
+const myNums = [1, 2, 3, 4, 5, 6, 7];
+const newNums = myNums.filter((item) => {
+  return item >= 5;
+});
+// console.log(newNums);
+
+// map method is to update each and every element and return it
+const newSums = myNums.map((item) => {
+  return item + 10;
+});
+// console.log(newSums);
+
+// Chaining (using two or more methods in the same line)
+
+const newNumsSums = myNums.filter((item) => item > 3).map((item) => item * 2);
+// console.log(newNumsSums);
+
+// REDUCE Method  (usually used to find the summation of the elements of the array)
+
+const myTotal = myNums.reduce((accumulator, currentValue) => {     // initally the accumulator value is first value of array
+  console.log(
+    `Accumulator : ${accumulator} , Current Value : ${currentValue}`
+  );
+  return accumulator + currentValue;  // now accumulator value changes to returned value of the funciton
+});
+console.log(myTotal);   // sum of the elements of the array
+
