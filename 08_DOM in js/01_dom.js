@@ -17,9 +17,11 @@ title.style.backgroundColor = "orange";
 const innerHtml = title.innerHTML;
 const innerText = title.innerText;
 
-console.log(innerHtml); // it will tags and text in the title tag
+console.log(innerHtml); // it will show tags and text in the title tag
 console.log(innerText);  // it will only show the text in the tag
 
 // inner text can be manipulated by assining new value
 // title.innerText="hello world"    
+
+
 
