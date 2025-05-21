@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+
+<body style="background-color: #444141; color: aliceblue;">
+    <ul id="items">
+        <li id="item1">Plain dosa</li>
+
+        <li id="item2">Masala dosa</li>
+
+        <li id="item3">Benne dosa</li>
+
+        <li id="item4">Idli sambar</li>
+
+        <li id="item5">Vade sambar</li>
+
+        <li id="item6">Mangalore buns</li>
+
+        <li id="item7">Rice bhath</li>
+    </ul>
+</body>
+<script>
+    document.getElementById('item1').addEventListener('click', (e) => {
+        console.log(e);
+    })  // it will log all the events invoked
+
+    document.getElementById('item2').addEventListener('click', (e) => {
+        alert('item2 is selected') // an alert is generated when the evnet is invoked
+        console.log(e);
+    })
+
+    /////////////////////////////////////////////
+    //Event propagation (Bubbling and capturing)
+
+    //by default bubbling propagation is performed 
+    document.querySelector("#items").addEventListener('click', function (e) {
+        console.log('any item is clicked')
+    }, true)
+    document.getElementById('item3').addEventListener('click', function (e) {
+        console.log("Benne dosa is clicked");
+    }, true)
+    //to perform the capturing propagation true parameter is passed
+    document.getElementById('item4').addEventListener('click', function (e) {
+        console.log('idli sambar is selected')
+        e.stopPropagation()
+    }, true)
+
+
+    //////////////////////////////////////////////////////////////////////////
+    // target tagname 
+    document.querySelector('#items').addEventListener('click', function (e) {
+
+        console.log(e.target.tagName);
+        if (e.target.tagName === "LI") {
+            console.log(e.target.id);  // will log the id of the element triggering the event
+
+            let removeIt = e.target
+            removeIt.remove()  //this method helps to remove the element form the document
+        }
+
+    })
+
+    //item 4 will not be removed bcz it is stopping the propagation
+    
+
+</script>
+
+</html>
