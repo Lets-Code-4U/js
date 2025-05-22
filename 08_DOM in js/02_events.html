@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout and setTimeInterval method</title>
+    <style>
+        body {
+            background-color: black;
+            color: snow;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>setTimeout and setTimeinterval methods shown in console</h1>
+</body>
+<script>
+    //First way
+    setTimeout(() => {
+        console.log("I am sarvesh mishra")
+    }, 2000)  // after two sec of loading a website this will be printed only once
+
+    //Anothed way (passing a function reference)
+    function hiiSarvesh() {
+        console.log("hii again this is sarvesh mishra")
+    }
+    let msgtimeout = setTimeout(hiiSarvesh, 3000)  // passing a handler reference
+
+    // setTimeInterval 
+    const sayDate = (str) => {
+        console.log(str, Date().toLocaleLowerCase())
+    }
+
+    let intervalId = setInterval(sayDate, 2000, "back again") // keeps going in the interval of two seconds
+
+
+    // cleartimeout or clear time interval
+
+    clearInterval(intervalId)   // clearing the time interval loop
+
+    //////////////////////////////////////////////////////////////////
+    // Breaking the interval loop after 10 seconds of the page loading
+
+    let counter = 0;
+    const msgPrint = () => {
+        console.log("hii sarvesh", Date().toLocaleLowerCase())
+        counter += 2
+
+        if (counter > 10) {
+            clearInterval(intervalId2)
+        }
+    }
+    let intervalId2 = setInterval(msgPrint, 2000)
+</script>
+
+</html>
